@@ -1,6 +1,7 @@
 {
   "name": "eventflow",
   "version": "1.0.0",
+  "type": "module",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -9,13 +10,20 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "~19.0.1",
     "expo": "~50.0.4",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-dom": "18.2.0",
+    "react-native": "0.73.2",
+    "react-native-web": "~0.19.6",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "babel-preset-expo": "^10.0.1",
+    "metro-react-native-babel-preset": "^0.77.0"
   },
   "private": true
 }
