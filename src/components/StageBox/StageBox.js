@@ -1,13 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 
-const StageBox = ({ title, prinArtist, secArtist }) => {
-  const handleStagePress = () =>{
-    alert("Presionasteeee")
-  }
+const StageBox = ({ title, prinArtist, secArtist, artistInStage}) => {
+
+  const navigation = useNavigation()
   return (
-    <Pressable style={styles.container} onPress={handleStagePress}>
+    <Pressable 
+      style={styles.container}
+      onPress={() => navigation.navigate('StageInfo', {title: title, artistGrid:artistInStage})}
+    >
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.prinArtist}>{prinArtist}</Text>
       <Text style={styles.secArtist}>{secArtist}</Text>

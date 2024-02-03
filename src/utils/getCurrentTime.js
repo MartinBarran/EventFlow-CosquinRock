@@ -19,7 +19,7 @@ const usableTime = () =>{
     }
     
     useEffect(() => {
-        const intervalId = setInterval(updateCurrentTime, 10000); 
+        const intervalId = setInterval(updateCurrentTime, 1000); 
         return () => clearInterval(intervalId);
       });
 

@@ -1,4 +1,4 @@
-  import StageBox from "../components/StageBox/StageBox";
+import StageBox from "../components/StageBox/StageBox";
 import usableTime from "./getCurrentTime";
 
 
@@ -7,9 +7,8 @@ import usableTime from "./getCurrentTime";
 
   
   const StageBoxRenderer = (obj) => {
-    console.log(obj)
-    console.log(obj["Escenario Este"])
     const time = usableTime();
+    console.log(time)
     const stages = Object.keys(obj);
   
   
@@ -20,7 +19,8 @@ import usableTime from "./getCurrentTime";
           const previousArtists = artistInStage.filter((artist) => artist.time < time)
           const artistAtTime = previousArtists[previousArtists.length - 1];
           const nextArtist = artistInStage[previousArtists.length]
-                  
+          //console.log(artistInStage);
+          //console.log(artistInStage)
 
           return (
             <StageBox
@@ -28,6 +28,7 @@ import usableTime from "./getCurrentTime";
               title={artistAtTime.stage}
               prinArtist={`${artistAtTime.artist} ${artistAtTime.time}`}
               secArtist={`${nextArtist.artist} ${nextArtist.time}`}
+              artistInStage={artistInStage}
               
             />
           );
