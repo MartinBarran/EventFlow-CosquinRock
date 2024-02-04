@@ -39,12 +39,15 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 8,
+    color:"white"
   },
   prinArtist: {
     fontSize: 20,
+    color:"white"
   },
   secArtist: {
     fontSize: 14,
+    color:"white"
   }
 });
 
