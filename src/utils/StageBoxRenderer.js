@@ -1,5 +1,6 @@
 import StageBox from "../components/StageBox/StageBox";
 import usableTime from "./getCurrentTime";
+import coloredStagesObj from "./stagesGlobalStyles";
 
 
 
@@ -19,6 +20,7 @@ import usableTime from "./getCurrentTime";
           const previousArtists = artistInStage.filter((artist) => artist.time < time)
           const artistAtTime = previousArtists[previousArtists.length - 1];
           const nextArtist = artistInStage[previousArtists.length]
+          const color = coloredStagesObj[element]
           //console.log(artistInStage);
           //console.log(artistInStage)
 
@@ -29,6 +31,7 @@ import usableTime from "./getCurrentTime";
               prinArtist={`${artistAtTime.artist} ${artistAtTime.time}`}
               secArtist={`${nextArtist.artist} ${nextArtist.time}`}
               artistInStage={artistInStage}
+              color={color}
               
             />
           );

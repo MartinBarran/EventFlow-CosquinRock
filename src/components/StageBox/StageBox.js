@@ -3,12 +3,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 
-const StageBox = ({ title, prinArtist, secArtist, artistInStage}) => {
+const StageBox = ({ title, prinArtist, secArtist, artistInStage, color}) => {
 
   const navigation = useNavigation()
   return (
     <Pressable 
-      style={styles.container}
+      style={[styles.container, { backgroundColor: color }]}
       onPress={() => navigation.navigate('StageInfo', {title: title, artistGrid:artistInStage})}
     >
       <Text style={styles.title}>{title}</Text>

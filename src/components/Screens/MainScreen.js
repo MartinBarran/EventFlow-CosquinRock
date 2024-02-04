@@ -31,18 +31,19 @@ const MainScreen=({navigation})=>{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     textAlign:"center",
+    color: "#fefefe"
   },
   scrollViewContainer: {
     height:"80%",
-    width: "100%"
+    width: "100%",
   },
   scrollView: {
     width: '100%',
@@ -52,8 +53,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightgrey',
-    
+    backgroundColor: '#000000',    
   }
 
 });

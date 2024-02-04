@@ -19,7 +19,7 @@ const exampleEventData = [
   { artist: 'Los Fabulosos Cadillacs', time: '22:15', stage: 'Escenario Norte' },
   { artist: 'Luis Alberto Spinetta', time: '22:30', stage: 'Escenario Norte' },
   { artist: 'Soda Stereo', time: '23:00', stage: 'Escenario Norte' },
-  { artist: 'Charly García', time: '23:45', stage: 'Escenario Norte' },
+  { artist: 'Charly García', time: '23:59', stage: 'Escenario Norte' },
 
   // Escenario Sur
   { artist: 'Fabiana Cantilo', time: '10:00', stage: 'Escenario Sur' },
@@ -75,6 +75,8 @@ const exampleEventData = [
   { artist: 'Fabiana Cantilo', time: '20:00', stage: 'Escenario Este' },
   { artist: 'Callejeros', time: '21:30', stage: 'Escenario Este' },
   { artist: 'Moris', time: '23:00', stage: 'Escenario Este' },
+  { artist: 'Casi Justicia Social', time: '23:59', stage: 'Escenario Este' },
+
 
 
   // Escenario Oeste
@@ -97,6 +99,8 @@ const exampleEventData = [
   { artist: 'Lisandro Aristimuño', time: '21:00', stage: 'Escenario Oeste' },
   { artist: 'Kevin Johansen', time: '21:30', stage: 'Escenario Oeste' },
   { artist: 'Catupecu Machu', time: '23:00', stage: 'Escenario Oeste' },
+  { artist: 'Los Ramones', time: '23:59', stage: 'Escenario Oeste' },
+
 ];
 
 export default exampleEventData;

@@ -30,6 +30,5 @@ const setArtistToStages = (artistArray, stagesObject) =>{
 
 const eventSchedule = setArtistToStages(exampleEventData, stages)
 
-console.log(eventSchedule)
 
 export default eventSchedule
