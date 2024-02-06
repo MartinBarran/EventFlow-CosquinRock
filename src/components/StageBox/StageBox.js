@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 
 const StageBox = ({ title, prinArtist, secArtist, artistInStage, color}) => {
-
   const navigation = useNavigation()
   return (
     <Pressable 

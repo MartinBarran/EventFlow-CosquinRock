@@ -1,106 +1,99 @@
 const exampleEventData = [
-  // Escenario Norte
-  { artist: 'Babasónicos', time: '10:00', stage: 'Escenario Norte' },
-  { artist: 'Miguel Mateos ZAS', time: '11:30', stage: 'Escenario Norte' },
-  { artist: 'Divididos', time: '12:00', stage: 'Escenario Norte' },
-  { artist: 'Billy Bond y La Pesada del Rock and Roll', time: '13:30', stage: 'Escenario Norte' },
-  { artist: 'Virus', time: '14:00', stage: 'Escenario Norte' },
-  { artist: 'Indio Solari', time: '15:30', stage: 'Escenario Norte' },
-  { artist: 'Bersuit Vergarabat', time: '16:50', stage: 'Escenario Norte' },
-  { artist: 'Gustavo Cerati', time: '17:45', stage: 'Escenario Norte' },
-  { artist: 'Los Gatos', time: '18:30', stage: 'Escenario Norte' },
-  { artist: 'Fito Páez', time: '19:00', stage: 'Escenario Norte' },
-  { artist: 'Enanitos Verdes', time: '20:00', stage: 'Escenario Norte' },
-  { artist: 'Andrés Calamaro', time: '20:15', stage: 'Escenario Norte' },
-  { artist: 'La Renga', time: '20:35', stage: 'Escenario Norte' },
-  { artist: 'Sumo', time: '21:00', stage: 'Escenario Norte' },
-  { artist: "Pappo's Blues", time: '21:20', stage: 'Escenario Norte' },
-  { artist: 'Patricio Rey y Sus Redonditos de Ricota', time: '22:00', stage: 'Escenario Norte' },
-  { artist: 'Los Fabulosos Cadillacs', time: '22:15', stage: 'Escenario Norte' },
-  { artist: 'Luis Alberto Spinetta', time: '22:30', stage: 'Escenario Norte' },
-  { artist: 'Soda Stereo', time: '23:00', stage: 'Escenario Norte' },
-  { artist: 'Charly García', time: '23:59', stage: 'Escenario Norte' },
+  
+    { stage: 'Norte', artist: 'Balir', time: '14:30' },
+    { stage: 'Norte', artist: 'Natalie Pérez', time: '15:20' },
+    { stage: 'Norte', artist: 'Silvestre y la Naranja', time: '16:10' },
+    { stage: 'Norte', artist: 'Nafta', time: '17:10' },
+    { stage: 'Norte', artist: 'Los Pericos y Amigos', time: '18:30' },
+    { stage: 'Norte', artist: 'Dillom', time: '20:00' },
+    { stage: 'Norte', artist: 'Babasónicos', time: '21:20' },
+    { stage: 'Norte', artist: 'Conociendo Rusia', time: '22:50' },
+    { stage: 'Norte', artist: 'Los Auténticos Decadentes(0.20)', time: '23:59' },// time: '0:20' }
+    //{ stage: 'Norte', artist: 'Los Auténticos Decadentes', time: '23:59' },
+    //{ stage: 'Norte', artist: 'Los Auténticos Decadentes', time: '00:00' },
+  
+  
 
-  // Escenario Sur
-  { artist: 'Fabiana Cantilo', time: '10:00', stage: 'Escenario Sur' },
-  { artist: 'Los Rodríguez', time: '11:30', stage: 'Escenario Sur' },
-  { artist: 'La Máquina de Hacer Pájaros', time: '12:00', stage: 'Escenario Sur' },
-  { artist: 'Arco Iris', time: '12:30', stage: 'Escenario Sur' },
-  { artist: 'PorSuiGieco', time: '13:00', stage: 'Escenario Sur' },
-  { artist: 'Spinetta Jade', time: '13:30', stage: 'Escenario Sur' },
-  { artist: 'Pescado Rabioso', time: '13:50', stage: 'Escenario Sur' },
-  { artist: 'Almendra', time: '14:45', stage: 'Escenario Sur' },
-  { artist: 'Los Abuelos de la Nada', time: '15:00', stage: 'Escenario Sur' },
-  { artist: 'Attaque 77', time: '15:30', stage: 'Escenario Sur' },
-  { artist: 'Los Piojos', time: '16:15', stage: 'Escenario Sur' },
-  { artist: 'Moris', time: '16:45', stage: 'Escenario Sur' },
-  { artist: 'Manal', time: '17:15', stage: 'Escenario Sur' },
-  { artist: 'O.Connor', time: '18:00', stage: 'Escenario Sur' },
-  { artist: 'Tren Loco', time: '18:30', stage: 'Escenario Sur' },
-  { artist: 'El Otro Yo', time: '19:00', stage: 'Escenario Sur' },
-  { artist: 'León Gieco', time: '19:30', stage: 'Escenario Sur' },
-  { artist: 'Karamelo Santo', time: '19:50', stage: 'Escenario Sur' },
-  { artist: 'Fun People', time: '20:20', stage: 'Escenario Sur' },
-  { artist: 'Viejas Locas', time: '20:45', stage: 'Escenario Sur' },
-  { artist: 'Massacre', time: '21:15', stage: 'Escenario Sur' },
-  { artist: 'Todos Tus Muertos', time: '21:35', stage: 'Escenario Sur' },
-  { artist: 'Los Beatniks', time: '22:00', stage: 'Escenario Sur' },
-  { artist: 'Los Brujos', time: '22:20', stage: 'Escenario Sur' },
-  { artist: 'G.I.T.', time: '22:50', stage: 'Escenario Sur' },
-  { artist: 'Los Twist', time: '23:00', stage: 'Escenario Sur' },
-  { artist: 'Contraluz', time: '23:15', stage: 'Escenario Sur' },
-  { artist: 'Vox Dei', time: '23:30', stage: 'Escenario Sur' },
-  { artist: 'Los Cinco Latinos', time: '23:45', stage: 'Escenario Sur' },
-  { artist: 'Riff', time: '23:59', stage: 'Escenario Sur' },
+    
+      { stage: 'Sur', artist: 'Winona Riders', time: '14:30' },
+      { stage: 'Sur', artist: 'La Chancha Viuda', time: '15:00' },
+      { stage: 'Sur', artist: 'La Mississipi', time: '15:50' },
+      { stage: 'Sur', artist: 'Sueño de Pescado', time: '17:00' },
+      { stage: 'Sur', artist: 'Airbag', time: '18:30' },
+      { stage: 'Sur', artist: 'Divididos', time: '20:00' },
+      { stage: 'Sur', artist: 'Skay y los Favores', time: '22:10' },
+      { stage: 'Sur', artist: 'La Vela Puerca', time: '23:40' },
+      { stage: 'Sur', artist: 'Caras Extrañas(1.10)', time: '23:59' },//time: '1:10' },
+      //{ stage: 'Sur', artist: 'Los Auténticos Decadentes', time: '23:59' },
+      //{ stage: 'Sur', artist: 'Los Auténticos Decadentes', time: '00:00' },
+    
+    
 
-
-  // Escenario Este
-  { artist: 'Los Rodríguez', time: '10:00', stage: 'Escenario Este' },
-  { artist: 'Ratones Paranoicos', time: '10:30', stage: 'Escenario Este' },
-  { artist: 'Los Natas', time: '11:00', stage: 'Escenario Este' },
-  { artist: 'Illya Kuryaki & the Valderramas', time: '11:30', stage: 'Escenario Este' },
-  { artist: 'Vilma Palma e Vampiros', time: '12:00', stage: 'Escenario Este' },
-  { artist: 'Serú Girán', time: '12:30', stage: 'Escenario Este' },
-  { artist: 'Sui Generis', time: '12:50', stage: 'Escenario Este' },
-  { artist: 'Nito Mestre', time: '13:15', stage: 'Escenario Este' },
-  { artist: 'Los Violadores', time: '13:50', stage: 'Escenario Este' },
-  { artist: 'A.N.I.M.A.L.', time: '14:15', stage: 'Escenario Este' },
-  { artist: '2 Minutos', time: '14:30', stage: 'Escenario Este' },
-  { artist: 'Flema', time: '15:00', stage: 'Escenario Este' },
-  { artist: 'Horcas', time: '15:30', stage: 'Escenario Este' },
-  { artist: 'V8', time: '14:00', stage: 'Escenario Este' },
-  { artist: 'Hermética', time: '15:30', stage: 'Escenario Este' },
-  { artist: 'Almafuerte', time: '16:00', stage: 'Escenario Este' },
-  { artist: 'Rata Blanca', time: '18:30', stage: 'Escenario Este' },
-  { artist: 'Fabiana Cantilo', time: '20:00', stage: 'Escenario Este' },
-  { artist: 'Callejeros', time: '21:30', stage: 'Escenario Este' },
-  { artist: 'Moris', time: '23:00', stage: 'Escenario Este' },
-  { artist: 'Casi Justicia Social', time: '23:59', stage: 'Escenario Este' },
+      { stage: 'Montaña', artist: 'Shinova', time: '16:10' },
+      { stage: 'Montaña', artist: 'Arde Bogotá', time: '17:10' },
+      { stage: 'Montaña', artist: 'Bandalos Chinos', time: '18:10' },
+      { stage: 'Montaña', artist: 'Miranda!', time: '19:30' },
+      { stage: 'Montaña', artist: 'Tiago PZK', time: '22:30' },      
+      { stage: 'Montaña', artist: 'LALI', time: '21:00' },
+      { stage: 'Montaña', artist: 'Victoria Engel', time: '23:45' },
+      { stage: 'Montaña', artist: 'Gordo(0.50)', time: '23:58' },//0.50
+      { stage: 'Montaña', artist: 'Claptone(2.10)', time: '23:59' },//2.15
 
 
 
-  // Escenario Oeste
-  { artist: 'Raul Porchetto', time: '08:00', stage: 'Escenario Oeste' },
-  { artist: 'Los Auténticos Decadentes', time: '09:30', stage: 'Escenario Oeste' },
-  { artist: 'Las Pelotas', time: '11:00', stage: 'Escenario Oeste' },
-  { artist: 'Tan Biónica', time: '12:30', stage: 'Escenario Oeste' },
-  { artist: 'Lisandro Aristimuño', time: '13:33', stage: 'Escenario Oeste' },
-  { artist: 'Kevin Johansen', time: '15:30', stage: 'Escenario Oeste' },
-  { artist: 'Skay Beilinson', time: '16:00', stage: 'Escenario Oeste' },
-  { artist: 'Ariel Rot', time: '16:30', stage: 'Escenario Oeste' },
-  { artist: 'Los Pericos', time: '17:00', stage: 'Escenario Oeste' },
-  { artist: 'Los Auténticos Decadentes', time: '17:30', stage: 'Escenario Oeste' },
-  { artist: 'Catupecu Machu', time: '18:00', stage: 'Escenario Oeste' },
-  { artist: 'Raul Porchetto', time: '18:30', stage: 'Escenario Oeste' },
-  { artist: 'Skay Beilinson', time: '19:00', stage: 'Escenario Oeste' },
-  { artist: 'Los Pericos', time: '19:30', stage: 'Escenario Oeste' },
-  { artist: 'Ariel Rot', time: '20:00', stage: 'Escenario Oeste' },
-  { artist: 'Tan Biónica', time: '20:20', stage: 'Escenario Oeste' },
-  { artist: 'Lisandro Aristimuño', time: '21:00', stage: 'Escenario Oeste' },
-  { artist: 'Kevin Johansen', time: '21:30', stage: 'Escenario Oeste' },
-  { artist: 'Catupecu Machu', time: '23:00', stage: 'Escenario Oeste' },
-  { artist: 'Los Ramones', time: '23:59', stage: 'Escenario Oeste' },
+        //{ stage: 'Montaña', artist: 'Los Auténticos Decadentes', time: '23:59' },
+        //{ stage: 'Montaña', artist: 'Los Auténticos Decadentes', time: '00:00' },
+      
+      
 
-];
+        
+          { stage: 'Boomerang', artist: 'Martín Gusta', time: '15:00' },
+          { stage: 'Boomerang', artist: 'Pedro Pastor', time: '15:50' },
+          { stage: 'Boomerang', artist: 'Veintiuno', time: '16:40' },
+          { stage: 'Boomerang', artist: 'Melanie Williams', time: '17:30' },
+          { stage: 'Boomerang', artist: 'Broke Carrey', time: '18:30' },
+          { stage: 'Boomerang', artist: 'Dante Spinetta', time: '19:40' },
+          { stage: 'Boomerang', artist: 'Alan Sutton', time: '20:40' },
+          { stage: 'Boomerang', artist: 'Isla de Caras', time: '21:50' },
+          { stage: 'Boomerang', artist: '1915', time: '22:50' },
+          { stage: 'Boomerang', artist: 'León Cordero(00.00)', time: '23:58' },//00:0
+          { stage: 'Boomerang', artist: 'Polenta(1.10)', time: '23:59' },//1:10
+
+          //{ stage: 'Boomerang', artist: 'Los Auténticos Decadentes', time: '23:59' },
+          //{ stage: 'Boomerang', artist: 'Los Auténticos Decadentes', time: '00:00' },
+        
+        
+
+          
+
+          { stage: 'Paraguay', artist: 'Kamada', time: '15:30' },
+          { stage: 'Paraguay', artist: 'Luana', time: '16:30' },
+            { stage: 'Paraguay', artist: 'Los Peñaloza', time: '17:30' },
+            { stage: 'Paraguay', artist: 'Los Tableros', time: '18:30' },
+            { stage: 'Paraguay', artist: 'La Delio Valdez', time: '19:40' },
+            { stage: 'Paraguay', artist: 'Ke Personajes', time: '20:50' },
+            { stage: 'Paraguay', artist: 'Sara Hebe', time: '22:10' },
+            { stage: 'Paraguay', artist: 'Sabor Canela', time: '23:50' },
+            { stage: 'Paraguay', artist: 'Fiesta Sabor(0.40)', time: '23:59' },//00.40
+
+            //{ stage: 'Paraguay', artist: 'Los Auténticos Decadentes', time: '23:59' },
+            //{ stage: 'Paraguay', artist: 'Los Auténticos Decadentes', time: '00:00' },
+          
+          
+
+            
+              { stage: 'La Casita Del Blues', artist: 'The Rockmen', time: '16:00' },
+              { stage: 'La Casita Del Blues', artist: 'Marlene', time: '16:55' },
+              { stage: 'La Casita Del Blues', artist: 'Miau Trío', time: '17:50' },
+              { stage: 'La Casita Del Blues', artist: 'Wayra Iglesias', time: '18:45' },
+              { stage: 'La Casita Del Blues', artist: 'Cuatro Al Hilo', time: '19:40' },
+              { stage: 'La Casita Del Blues', artist: 'Iván Singh', time: '20:35' },
+              { stage: 'La Casita Del Blues', artist: 'Escalandrum', time: '21:40' },
+              { stage: 'La Casita Del Blues', artist: 'Julieta Laso (22.45)', time: '23:59' }//22.45
+            ]
+            
+
+
 
 export default exampleEventData;
+console.log(exampleEventData)

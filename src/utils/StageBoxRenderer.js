@@ -11,6 +11,7 @@ import coloredStagesObj from "./stagesGlobalStyles";
     const time = usableTime();
     console.log(time)
     const stages = Object.keys(obj);
+   
   
   
     return (
@@ -21,8 +22,8 @@ import coloredStagesObj from "./stagesGlobalStyles";
           const artistAtTime = previousArtists[previousArtists.length - 1];
           const nextArtist = artistInStage[previousArtists.length]
           const color = coloredStagesObj[element]
-          //console.log(artistInStage);
-          //console.log(artistInStage)
+          //console.log(color);
+          //console.log(element)
 
           return (
             <StageBox

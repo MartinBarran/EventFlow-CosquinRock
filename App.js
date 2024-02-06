@@ -5,6 +5,7 @@ import MainScreen from './src/components/Screens/MainScreen.js';
 import StageInfoScreen from './src/components/Screens/StageInfoScreen.js';
 import CustomItineraryScreen from './src/components/Screens/CustomItineraryScreen.js';
 import { ItineraryProvider } from './src/utils/itineraryContext.js';
+import ChooseDayScreen from './src/components/Screens/ChooseDayScreen.js';
 
 
 const Stack = createNativeStackNavigator();
@@ -13,7 +14,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <ItineraryProvider>
-        <Stack.Navigator initialRouteName="Main">
+        <Stack.Navigator initialRouteName="ChooseDay">
+          <Stack.Screen
+            name="ChooseDay"
+            component={ChooseDayScreen}
+          />
           <Stack.Screen 
             name="Main" 
             component={MainScreen}

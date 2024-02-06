@@ -5,8 +5,11 @@ import StageBoxRenderer from '../../utils/StageBoxRenderer.js';
 
 
 
-const MainScreen=({navigation})=>{
-    const data = eventSchedule
+const MainScreen=({navigation, route})=>{
+    const { day } = route.params;
+   // const data = eventSchedule
+   
+    const dayData = eventSchedule[day]
 
   return (
     <View style={styles.container}>
@@ -16,12 +19,12 @@ const MainScreen=({navigation})=>{
           style={styles.scrollView} 
           contentContainerStyle={styles.contentContainer}
         > 
-          <StageBoxRenderer {...data}></StageBoxRenderer>  
+          <StageBoxRenderer {...dayData}></StageBoxRenderer>  
         </ScrollView>
       </View> 
       <Button
         title="Mi Recorrido"
-        onPress={() => navigation.navigate('CustomItinerary')}
+        onPress={() => navigation.navigate('CustomItinerary', {day:day})}
       />
       <StatusBar style="auto" />
     </View>

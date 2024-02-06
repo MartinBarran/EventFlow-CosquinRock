@@ -13,16 +13,27 @@ const stagesColors = [
     'lime',
   ];
 
-const stages = Object.keys(eventSchedule)
+const getStages = (eventSchedule) =>{
+  const eventDays = Object.keys(eventSchedule)
+  let stages = []
+  
+  for (let i=0; i< eventDays.length; i++){
+    const dayStages = Object.keys(eventSchedule[eventDays[i]]);
+    stages = [...stages, ...dayStages]
+  }
+return [...new Set(stages)]
+}
+
+const uniquesValuesStages = getStages(eventSchedule);
 
 const coloredStagesObj = {};
 
-stages.forEach((stages, index) => {
+uniquesValuesStages.forEach((stages, index) => {
   const colorIndex = index % stagesColors.length;
   const color = stagesColors[colorIndex];
   coloredStagesObj[stages] = color;
 });
 
-console.log(coloredStagesObj);
+//console.log(coloredStagesObj);
 
 export default coloredStagesObj

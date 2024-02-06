@@ -5,13 +5,17 @@ const ItineraryContext = createContext();
 export const useItinerary = () => useContext(ItineraryContext);
 
 export const ItineraryProvider = ({ children }) => {
-  const [itinerary, setItinerary] = useState([]);
+  const [itinerary, setItinerary] = useState({});
 
-  const addToItinerary = (artist) => {
+  const addToItinerary = (artist, day) => {
     setItinerary((prevItinerary) => {
-      const updatedItinerary = [...prevItinerary, artist];
+      const updatedItinerary = { ...prevItinerary };
+      if (!updatedItinerary[day]) {
+        updatedItinerary[day] = [];
+      }
+      updatedItinerary[day] = [...updatedItinerary[day], artist];
       // Ordenar la lista por el atributo 'time'
-      updatedItinerary.sort((a, b) => compareTimes(a.time, b.time));
+      updatedItinerary[day].sort((a, b) => compareTimes(a.time, b.time));
       return updatedItinerary;
     });
   };
@@ -27,14 +31,20 @@ export const ItineraryProvider = ({ children }) => {
     return hoursA - hoursB;
   };
 
-  const deleteFromItinerary = (artist) =>{
-    const artistIndex = itinerary.indexOf(artist);
-    const newItinerary = [...itinerary];
-    newItinerary.splice(artistIndex, 1);
-
-    setItinerary(newItinerary);
-  }
-  
+  const deleteFromItinerary = (artist, day) =>{
+    if (itinerary[day]) {
+      const newItinerary = { ...itinerary };
+      const artistIndex = newItinerary[day].findIndex(item => (
+        item.stage === artist.stage &&
+        item.artist === artist.artist &&
+        item.time === artist.time
+      ));
+      if (artistIndex !== -1) {
+        newItinerary[day] = [...newItinerary[day].slice(0, artistIndex), ...newItinerary[day].slice(artistIndex + 1)];
+        setItinerary(newItinerary);
+      }
+    }
+  };
 
   return (
     <ItineraryContext.Provider value={{ itinerary, addToItinerary, deleteFromItinerary }}>
