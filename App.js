@@ -14,10 +14,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <ItineraryProvider>
-        <Stack.Navigator initialRouteName="ChooseDay">
+        <Stack.Navigator 
+          initialRouteName="ChooseDay" 
+          screenOptions={{
+            headerShown: false
+          }}>
           <Stack.Screen
             name="ChooseDay"
-            component={ChooseDayScreen}
+            component={ChooseDayScreen}            
           />
           <Stack.Screen 
             name="Main" 

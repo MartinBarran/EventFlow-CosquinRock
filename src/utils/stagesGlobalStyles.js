@@ -5,7 +5,7 @@ const stagesColors = [
     '#a8d403',
     '#23b3d3',
     '#e6c858',
-    '#0a0047',
+    '#FAB2EA',
     'orange',
     'pink',
     'brown',

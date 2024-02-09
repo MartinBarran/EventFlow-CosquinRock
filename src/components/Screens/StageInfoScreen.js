@@ -1,10 +1,13 @@
-import { Pressable, ScrollView, Text, View, StyleSheet } from "react-native"
+import { Pressable, ScrollView, Text, View, StyleSheet, ImageBackground } from "react-native"
 import { useItinerary } from "../../utils/itineraryContext"
 import coloredStagesObj from "../../utils/stagesGlobalStyles";
 import eventSchedule from "../../data/processedExampleData";
+import { useState } from "react";
+import Popup from "../PopUp";
 
 const findArtistDay = (artistInfo) => {
     const days = Object.keys(eventSchedule);
+    //console.log("Dias: ", days)
     let artistDay = null;
 
     days.forEach(day => {
@@ -23,37 +26,16 @@ const findArtistDay = (artistInfo) => {
 };
 
 
-const handleClick = (artistInfo, addToItinerary, itinerary, deleteFromItinerary, artistDay) => {
-    // Verifica si el día está presente en el itinerario
-    if (itinerary.hasOwnProperty(artistDay)) {
-        const dayItinerary = itinerary[artistDay];
-        // Verifica si el artista está presente en el itinerario del día correspondiente
-        const isArtistInDay = dayItinerary.some(item => (
-            item.stage === artistInfo.stage &&
-            item.artist === artistInfo.artist &&
-            item.time === artistInfo.time
-        ));
-        
-        if (isArtistInDay) {
-            deleteFromItinerary(artistInfo, artistDay);
-            alert("Artista eliminado del itinerario");
-        } else {
-            addToItinerary(artistInfo, artistDay);
-            alert("Agregado a tu recorrido");
-        }
-    } else {
-        addToItinerary(artistInfo, artistDay);
-        alert("Agregado a tu recorrido");
-    }
-};
 
-const ArtistButton = ({ title, artistInfo, addToItinerary, itinerary, deleteFromItinerary, color, height, fontW, fontS, artistDay }) => {
+
+const ArtistButton = ({ title, artistInfo, addToItinerary, itinerary, deleteFromItinerary, color, height, fontW, fontS, artistDay, handleClick }) => {
     //console.log(color)
     return (
         <Pressable
             style={[styles.artistBtn, {backgroundColor:color, height:height}]}
             onPress={() => {
-                handleClick(artistInfo, addToItinerary, itinerary, deleteFromItinerary, artistDay);
+                handleClick(artistInfo, addToItinerary, itinerary, deleteFromItinerary, artistDay, setIsPopupActive);
+                console.log("ATENCION: ", artistDay)
             }}
         >
             <Text style={[styles.text,{fontWeight:fontW, fontSize:fontS}]}>
@@ -63,11 +45,12 @@ const ArtistButton = ({ title, artistInfo, addToItinerary, itinerary, deleteFrom
     )
 }
 
-const ArtistButtonRenderer = ({ arr }) => {
+const ArtistButtonRenderer = ({ arr, setIsPopupActive, handleClick }) => {
     const { addToItinerary, itinerary, deleteFromItinerary } = useItinerary();
     const selectedArtistColor = "#0a0047";
     const selectedArtistHeight= 85;
     const selectedArtistFontW = "900";
+    
 
     return (
         <>
@@ -89,6 +72,8 @@ const ArtistButtonRenderer = ({ arr }) => {
                         fontW={itinerary[artistDay] && itinerary[artistDay].includes(element) ? selectedArtistFontW : "normal"}
                         fontS={itinerary[artistDay] && itinerary[artistDay].includes(element) ? 20 : 15}
                         artistDay={artistDay}
+                        setIsPopupActive={setIsPopupActive}
+                        handleClick={handleClick}
                     />
                 );
             })}
@@ -99,17 +84,65 @@ const ArtistButtonRenderer = ({ arr }) => {
 
 const StageInfoScreen = ({ route }) => {
     const { title, artistGrid } = route.params;
-    return (
-        <View style={{backgroundColor:"#000000"}}>
-            <Text>{JSON.stringify(title)}</Text>
-                <ScrollView 
-                    style={styles.scrollView} 
-                    contentContainerStyle={styles.contentContainer}
-                >
-                    <ArtistButtonRenderer arr={artistGrid} />
-                </ScrollView>
+    [isPopupActive,setIsPopupActive] = useState(false);
+    [popupMessage, setPopupMessage] = useState();
+    [popupColor, setPopupColor] = useState("#23b3d3");
 
+    const handleClick = (artistInfo, addToItinerary, itinerary, deleteFromItinerary, artistDay, setIsPopupActive) => {
+        // Verifica si el día está presente en el itinerario
+        if (itinerary.hasOwnProperty(artistDay)) {
+            const dayItinerary = itinerary[artistDay];
+            // Verifica si el artista está presente en el itinerario del día correspondiente
+            const isArtistInDayItinerary = dayItinerary.some(item => (
+                item.stage === artistInfo.stage &&
+                item.artist === artistInfo.artist &&
+                item.time === artistInfo.time
+            ));
+            
+            if (isArtistInDayItinerary) {
+                deleteFromItinerary(artistInfo, artistDay);
+                setPopupMessage("Artista eliminado del itinerario");
+                setPopupColor("#dc2e51")
+            } else {
+                addToItinerary(artistInfo, artistDay);
+                setPopupMessage("Artista agregado a tu recorrido");
+                setPopupColor("#23b3d3")
+            }
+        } else {
+            addToItinerary(artistInfo, artistDay);
+            setPopupMessage("Agregado a tu recorrido");
+        }
+        setIsPopupActive(true)
+        setTimeout(()=>setIsPopupActive(false), 2000)
+    };
+    
+
+    return (
+        <View style={{backgroundColor:"#000000", height:"100%"}}>
+            <ImageBackground  
+                source={require("../../assets/bg2.png")} 
+                resizeMode="cover" 
+                style={styles.image}
+            >
+                <Text
+                    style={styles.title}
+                >
+                    {JSON.stringify(title).replaceAll('"', "")}
+                </Text>
+                <View style={styles.scrollViewContainer} >
+                    <ScrollView 
+                        style={styles.scrollView} 
+                        contentContainerStyle={styles.contentContainer}
+                    >
+                        <ArtistButtonRenderer arr={artistGrid} setIsPopupActive={setIsPopupActive} handleClick={handleClick}/>
+                    </ScrollView>
+                </View>
+                { isPopupActive && 
+                    <Popup message={popupMessage} color={popupColor}></Popup> 
+                }    
+            </ImageBackground>
         </View>
+        
     )
 }
 
@@ -125,21 +158,37 @@ const styles = StyleSheet.create({
       textAlign: "center",
       alignItems:"center", 
       justifyContent:"center",  
-      width: 350
-
+      width: 350,
+      borderWidth: 2,
+      borderColor:"#0a0047",
     },
     text:{
         color:"white",
         textAlign: "center",
         padding:5,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)', // Sombra negra
+        textShadowOffset: { width: 1, height: 1 }, // Offset de la sombra
+        textShadowRadius: 2, // Radio de la sombra
+    },
+    title:{
+        marginTop:50,
+        color:"white",
+        textAlign:"center",
+        fontSize: 40,
+        fontWeight:"900",
+        textShadowColor: 'rgba(0, 0, 0, 0.75)', // Sombra negra
+        textShadowOffset: { width: 1, height: 1 }, // Offset de la sombra
+        textShadowRadius: 2, // Radio de la sombra
     },
     scrollView: {
         width: '100%',
         margin: 20,
-        alignSelf: 'center',
+        alignSelf: 'center', 
       },
+      scrollViewContainer:{
+        height:"85%",
+      },    
       contentContainer: {
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#000000',    
+        alignItems: 'center',  
       }});

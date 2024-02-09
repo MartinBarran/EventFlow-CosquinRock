@@ -8,6 +8,7 @@ export const ItineraryProvider = ({ children }) => {
   const [itinerary, setItinerary] = useState({});
 
   const addToItinerary = (artist, day) => {
+    console.log("DIAAAAA: ", day)
     setItinerary((prevItinerary) => {
       const updatedItinerary = { ...prevItinerary };
       if (!updatedItinerary[day]) {
@@ -21,8 +22,14 @@ export const ItineraryProvider = ({ children }) => {
   };
 
   const compareTimes = (timeA, timeB) => {
-    const [hoursA, minutesA] = timeA.split(':').map(Number);
-    const [hoursB, minutesB] = timeB.split(':').map(Number);
+    let [hoursA, minutesA] = timeA.split(':').map(Number);
+    let [hoursB, minutesB] = timeB.split(':').map(Number);
+    if (hoursA<2){
+      hoursA = hoursA+24;
+    }
+    if (hoursB<2){
+      hoursB = hoursB+24;
+    }
 
     if (hoursA === hoursB) {
       return minutesA - minutesB;
